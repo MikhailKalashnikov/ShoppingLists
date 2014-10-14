@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">ShoppingLists</string>
+    <string name="shopping_list_default_name">Main</string>
+    <string name="mi_add">Add</string>
+    <string name="mi_delete">Delete</string>
+    <string name="mi_edit">Edit</string>
+    <string name="list_name">List Name</string>
+    <string name="item_name">Item Name</string>
+    <string name="item_category">Category</string>
+    <string name="list_item_qty">Qty</string>
+    <string name="mi_add_item">Add Item to List</string>
+    <string name="mi_add_list">New List</string>
+    <string name="mi_delete_list">Delete List</string>
+    <string name="mi_clear_list">Clear List</string>
+    <string name="mi_edit_list">Change List Name</string>
+    <string name="mi_edit_items">Edit Items</string>
+    <string name="item_is_used">This item is used in the lists!</string>
+    <string name="delete_list_confirmation">Delete list with all its items?</string>
+    <string name="clear_list_confirmation">Delete all items from the list?</string>
+    <string name="add_new_item">Add New Item&#8230;</string>
+    <string name="add_new_item_title">Add New Item</string>
+    <string name="add_new_list_title">Add New List</string>
+    <string name="edit_list_title">Edit List</string>
+    <string name="edit_list_item_title">Edit List Item</string>
+    <string name="edit_item_title">Edit Item</string>
+	<string name="on_upgrade_error">This should not be called</string>
+	<string name="listitem_context_title">Modify List Item</string>
+	<string name="done">Done</string>
+	<string name="empty_category">[No Category]</string>
+	<string-array name="qty_types">
+		<item >Piece</item>
+		<item >Kg</item>
+		<item >Liter</item>
+		<item >Pack</item>
+	</string-array>
+	<color name="doneTextViewColor">#B5B5B5</color>
+	
+	<string name="pref_category">Item Category</string>
+	<string name="mi_settings">Settings</string>
+	<string name="msg_list_item_deleted">Deleted</string>
+	<string name="msg_btn_undo">Undo</string>
+</resources>

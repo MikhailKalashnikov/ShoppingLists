@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#FFFFFF">
+
+    <!--Button
+        android:id="@+id/add_new_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/view_vertical_margin"
+        android:layout_marginLeft="@dimen/view_horizontal_margin"
+        android:layout_marginRight="@dimen/view_horizontal_margin"
+        android:layout_marginBottom="@dimen/view_vertical_margin"
+        android:text="@string/add_new_item" /-->
+
+    <ExpandableListView
+        android:id="@+id/item_list_with_category"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/view_vertical_margin"
+        android:background="#FFFFFF" >
+    </ExpandableListView>
+    
+    <ListView 
+        android:id="@+id/item_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/view_vertical_margin"
+        android:background="#FFFFFF">
+       
+    </ListView>
+
+</LinearLayout>

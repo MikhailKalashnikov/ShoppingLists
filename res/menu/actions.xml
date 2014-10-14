@@ -1,0 +1,35 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/mi_add_item_to_list"
+        android:showAsAction="ifRoom"
+        android:icon="@android:drawable/ic_menu_add"
+        android:title="@string/mi_add"/>
+    
+	<item 
+	    android:id="@+id/mi_add_list"
+	    android:showAsAction="never"
+	    android:title="@string/mi_add_list"/>
+    <item
+        android:id="@+id/mi_del_list"
+        android:showAsAction="never"
+        android:title="@string/mi_delete_list"/>
+	<item
+        android:id="@+id/mi_edit_list"
+        android:showAsAction="never"
+        android:title="@string/mi_edit_list"/>
+	<item
+        android:id="@+id/mi_clear_list"
+        android:showAsAction="never"
+        android:title="@string/mi_clear_list"/>
+	<item
+        android:id="@+id/mi_edit_items"
+        android:showAsAction="never"
+        android:title="@string/mi_edit_items"/>
+	
+	<item
+        android:id="@+id/mi_settings"
+        android:showAsAction="never"
+        android:title="@string/mi_settings"
+        android:icon="@android:drawable/ic_menu_preferences"/>
+</menu>
