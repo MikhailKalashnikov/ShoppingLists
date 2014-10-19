@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Список Покупок</string>
+    <string name="shopping_list_default_name">Основной</string>
+    <string name="mi_add">Добавить</string>
+    <string name="mi_delete">Удалить</string>
+    <string name="mi_edit">Изменить</string>
+    <string name="list_name">Название списка</string>
+    <string name="item_name">Название</string>
+    <string name="item_category">Категория</string>
+    <string name="list_item_qty">Кол-во</string>
+    <string name="mi_add_item">Добавить покупку</string>
+    <string name="mi_add_list">Новый лист</string>
+    <string name="mi_delete_list">Удалить список</string>
+    <string name="mi_clear_list">Очистить список</string>
+    <string name="mi_edit_list">Изменить список</string>
+    <string name="mi_edit_items">Редактировать покупки</string>
+    <string name="item_is_used">Эта покупка используется в списке!</string>
+    <string name="delete_list_confirmation">Удалить список вместе со всеми покупками?</string>
+    <string name="clear_list_confirmation">Удалить все покупки из скписка?</string>
+    <string name="add_new_item">Новая&#8230;</string>
+    <string name="add_new_item_title">Добавить покупку</string>
+    <string name="add_new_list_title">Созадть новый список</string>
+    <string name="edit_list_title">Изменить название списка</string>
+    <string name="edit_list_item_title">Редактировать покупку</string>
+    <string name="edit_item_title">Изменить покупку</string>
+	<string name="on_upgrade_error">This should not be called</string>
+	<string name="listitem_context_title">Редактировать покупку</string>
+	<string name="done">Done</string>
+	<string name="empty_category">[Без Категории]</string>
+	<string-array name="qty_types">
+		<item >Штука</item>
+		<item >Кг</item>
+		<item >Литр</item>
+		<item >Упаковка</item>
+	</string-array>
+	<color name="doneTextViewColor">#B5B5B5</color>
+	
+	<string name="pref_category">Категории покупок</string>
+	<string name="mi_settings">Настройки</string>
+	<string name="msg_list_item_deleted">Удалено</string>
+	<string name="msg_btn_undo">Отменить</string>
+</resources>
