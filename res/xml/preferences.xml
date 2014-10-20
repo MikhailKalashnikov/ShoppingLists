@@ -3,6 +3,6 @@
     <CheckBoxPreference 
         android:key="pref_use_category" 
         android:title="@string/pref_category"
-        android:defaultValue="false"/>
+        android:defaultValue="true"/>
     
 </PreferenceScreen>

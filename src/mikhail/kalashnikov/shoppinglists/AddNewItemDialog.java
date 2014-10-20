@@ -98,7 +98,7 @@ public class AddNewItemDialog extends SherlockDialogFragment implements OnEditor
 	@Override
 	public Dialog onCreateDialog(Bundle savedInstanceState) {
 		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
-		mShowCategory = prefs.getBoolean(SettingsActivity.KEY_PREF_USE_CATEGORY, false);
+		mShowCategory = prefs.getBoolean(SettingsActivity.KEY_PREF_USE_CATEGORY, true);
 
 		AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 		mMode = getArguments().getInt(KEY_MODE);

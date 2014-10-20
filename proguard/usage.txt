@@ -2431,7 +2431,7 @@ mikhail.kalashnikov.shoppinglists.ShoppingList:
 mikhail.kalashnikov.shoppinglists.ShoppingListDBHelper:
     private static final java.lang.String DATABASE_NAME
     private static final int SCHEMA_VERSION
-    411:414:void insertItemAsync(java.lang.String,java.lang.String,java.lang.String)
+    412:414:void insertItemAsync(java.lang.String,java.lang.String,java.lang.String)
 mikhail.kalashnikov.shoppinglists.ShoppingListDBHelper$InsertItemTask
 mikhail.kalashnikov.shoppinglists.ShoppingListsActivity:
     private static final java.lang.String MODEL

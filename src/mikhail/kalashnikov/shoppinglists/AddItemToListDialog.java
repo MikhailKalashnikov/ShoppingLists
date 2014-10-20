@@ -38,7 +38,7 @@ public class AddItemToListDialog extends SherlockDialogFragment{
 	public Dialog onCreateDialog(Bundle savedInstanceState) {
 		setStyle(STYLE_NORMAL, R.style.AppBaseTheme);
 		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
-		boolean showCategory = prefs.getBoolean(SettingsActivity.KEY_PREF_USE_CATEGORY, false);
+		boolean showCategory = prefs.getBoolean(SettingsActivity.KEY_PREF_USE_CATEGORY, true);
 		AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 
 		LayoutInflater inflater = getActivity().getLayoutInflater();

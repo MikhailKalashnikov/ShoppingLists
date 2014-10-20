@@ -52,7 +52,7 @@ public class EditItemsFragment extends SherlockFragment
 		super.onCreate(savedInstanceState);
 		Log.d(TAG, "onCreate");
 		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
-		mShowCategory = prefs.getBoolean(SettingsActivity.KEY_PREF_USE_CATEGORY, false);
+		mShowCategory = prefs.getBoolean(SettingsActivity.KEY_PREF_USE_CATEGORY, true);
 		mModel = ModelFragment.getInstance();
 		mDBHelper = ShoppingListDBHelper.getInstance(getSherlockActivity());
 	}

@@ -5230,14 +5230,13 @@ mikhail.kalashnikov.shoppinglists.ShoppingListDBHelper -> mikhail.kalashnikov.sh
     long access$1(mikhail.kalashnikov.shoppinglists.ShoppingListDBHelper) -> a
     void access$2(mikhail.kalashnikov.shoppinglists.ShoppingListDBHelper,long) -> a
     java.util.List access$3(mikhail.kalashnikov.shoppinglists.ShoppingListDBHelper) -> b
-    java.lang.String access$4(mikhail.kalashnikov.shoppinglists.ShoppingListDBHelper) -> c
-    void access$5(mikhail.kalashnikov.shoppinglists.ShoppingListDBHelper,java.util.List) -> b
-    java.util.Map access$6(mikhail.kalashnikov.shoppinglists.ShoppingListDBHelper) -> d
-    java.util.List access$7(mikhail.kalashnikov.shoppinglists.ShoppingListDBHelper) -> e
-    void access$8(mikhail.kalashnikov.shoppinglists.ShoppingListDBHelper,java.util.List) -> c
-    java.util.List access$9(mikhail.kalashnikov.shoppinglists.ShoppingListDBHelper) -> f
-    android.content.Context access$10(mikhail.kalashnikov.shoppinglists.ShoppingListDBHelper) -> g
-    void access$11(mikhail.kalashnikov.shoppinglists.ShoppingListDBHelper,java.lang.String) -> a
+    void access$4(mikhail.kalashnikov.shoppinglists.ShoppingListDBHelper,java.util.List) -> b
+    java.util.Map access$5(mikhail.kalashnikov.shoppinglists.ShoppingListDBHelper) -> c
+    java.util.List access$6(mikhail.kalashnikov.shoppinglists.ShoppingListDBHelper) -> d
+    void access$7(mikhail.kalashnikov.shoppinglists.ShoppingListDBHelper,java.util.List) -> c
+    java.util.List access$8(mikhail.kalashnikov.shoppinglists.ShoppingListDBHelper) -> e
+    android.content.Context access$9(mikhail.kalashnikov.shoppinglists.ShoppingListDBHelper) -> f
+    void access$10(mikhail.kalashnikov.shoppinglists.ShoppingListDBHelper,java.lang.String) -> a
 mikhail.kalashnikov.shoppinglists.ShoppingListDBHelper$DeleteItemTask -> mikhail.kalashnikov.shoppinglists.ar:
     long id -> b
     mikhail.kalashnikov.shoppinglists.ShoppingListDBHelper this$0 -> a
