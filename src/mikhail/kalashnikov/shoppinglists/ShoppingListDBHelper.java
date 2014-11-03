@@ -105,94 +105,98 @@ public class ShoppingListDBHelper extends SQLiteOpenHelper {
 		
 		@Override
 		protected Void doInBackground(Void... params) {
-			
-			Cursor c = getReadableDatabase().rawQuery(
+			try{
+				Cursor c = getReadableDatabase().rawQuery(
+							"SELECT " +
+								ShoppingList._ID + "," +
+								ShoppingList.COLUMN_NAME + 
+							" FROM " + ShoppingList.TABLE_NAME, 
+							null);
+				
+				shoppingLists = new ArrayList<ShoppingList>();
+				while (c.moveToNext()) { 
+					long id=c.getLong(0);
+					if(id>maxShoppingListId){
+						maxShoppingListId=id;
+					}
+					String name=c.getString(1); 
+					shoppingLists.add(new ShoppingList(name, id));
+				}
+				
+				c.close();
+				if(LogGuard.isDebug) {
+					for(ShoppingList s:shoppingLists){
+						Log.d(TAG, s.toString());
+					}
+				}
+				
+				c = getReadableDatabase().rawQuery(
 						"SELECT " +
-							ShoppingList._ID + "," +
-							ShoppingList.COLUMN_NAME + 
-						" FROM " + ShoppingList.TABLE_NAME, 
+							Item._ID + "," +
+							Item.COLUMN_NAME + "," +
+							Item.COLUMN_QTY_TYPE + "," +
+							Item.COLUMN_CATEGORY +
+						" FROM " + Item.TABLE_NAME, 
 						null);
 			
-			shoppingLists = new ArrayList<ShoppingList>();
-			while (c.moveToNext()) { 
-				long id=c.getLong(0);
-				if(id>maxShoppingListId){
-					maxShoppingListId=id;
+				mItems = new ArrayList<Item>();
+				while (c.moveToNext()) { 
+					long id=c.getLong(0);
+					String name=c.getString(1);
+					String qty_type=c.getString(2);
+					String category=c.getString(3);
+					Item item = new Item(id, name, qty_type,category);
+					itemsMap.put(id, item);
+					mItems.add(item);
 				}
-				String name=c.getString(1); 
-				shoppingLists.add(new ShoppingList(name, id));
-			}
-			
-			c.close();
-			if(LogGuard.isDebug) {
-				for(ShoppingList s:shoppingLists){
-					Log.d(TAG, s.toString());
+				Collections.sort(mItems);
+				c.close();
+				if(LogGuard.isDebug) {
+					
+					for(Item s:itemsMap.values()){
+						Log.d(TAG, s.toStringFull());
+					}
 				}
-			}
-			
-			c = getReadableDatabase().rawQuery(
-					"SELECT " +
-						Item._ID + "," +
-						Item.COLUMN_NAME + "," +
-						Item.COLUMN_QTY_TYPE + "," +
-						Item.COLUMN_CATEGORY +
-					" FROM " + Item.TABLE_NAME, 
-					null);
-		
-			mItems = new ArrayList<Item>();
-			while (c.moveToNext()) { 
-				long id=c.getLong(0);
-				String name=c.getString(1);
-				String qty_type=c.getString(2);
-				String category=c.getString(3);
-				Item item = new Item(id, name, qty_type,category);
-				itemsMap.put(id, item);
-				mItems.add(item);
-			}
-			Collections.sort(mItems);
-			c.close();
-			if(LogGuard.isDebug) {
 				
-				for(Item s:itemsMap.values()){
-					Log.d(TAG, s.toStringFull());
+				c = getReadableDatabase().rawQuery(
+						"SELECT " +
+							ListItem._ID + "," +
+							ListItem.COLUMN_LIST_ID + "," +
+							ListItem.COLUMN_ITEM_ID + "," +
+							ListItem.COLUMN_QTY + "," +
+							ListItem.COLUMN_DONE +
+						" FROM " + ListItem.TABLE_NAME, 
+						null);
+			
+				listItems = new ArrayList<ListItem>();
+				while (c.moveToNext()) { 
+					long id=c.getLong(0);
+					long list_id=c.getLong(1);
+					long item_id=c.getLong(2);
+					String qty=c.getString(3);
+					int isDone=c.getInt(4);
+					listItems.add(new ListItem(id, list_id, itemsMap.get(item_id), qty, isDone));
 				}
-			}
-			
-			c = getReadableDatabase().rawQuery(
-					"SELECT " +
-						ListItem._ID + "," +
-						ListItem.COLUMN_LIST_ID + "," +
-						ListItem.COLUMN_ITEM_ID + "," +
-						ListItem.COLUMN_QTY + "," +
-						ListItem.COLUMN_DONE +
-					" FROM " + ListItem.TABLE_NAME, 
-					null);
-		
-			listItems = new ArrayList<ListItem>();
-			while (c.moveToNext()) { 
-				long id=c.getLong(0);
-				long list_id=c.getLong(1);
-				long item_id=c.getLong(2);
-				String qty=c.getString(3);
-				int isDone=c.getInt(4);
-				listItems.add(new ListItem(id, list_id, itemsMap.get(item_id), qty, isDone));
-			}
-			
-			c.close();
-			if(LogGuard.isDebug) {
-				for(ListItem s:listItems){
-					Log.d(TAG, s.toString());
+				
+				c.close();
+				if(LogGuard.isDebug) {
+					for(ListItem s:listItems){
+						Log.d(TAG, s.toString());
+					}
 				}
+				
+				emptyCategoryName = ctxt.getApplicationContext().getResources()
+						.getString(R.string.empty_category);
+			}catch (Exception e) {
+				Log.e(TAG, "GetShoppingDataTask", e);
 			}
-			
-			emptyCategoryName = ctxt.getApplicationContext().getResources()
-					.getString(R.string.empty_category);
 			return null;
 			
 		}
 		
 		@Override
 		protected void onPostExecute(Void v) {
+			if(LogGuard.isDebug) Log.d(TAG, "GetShoppingDataTask.onPostExecute" + (listener==null));
 			listener.updateShoppingData(shoppingLists, listItems, itemsMap);
 		}
 		

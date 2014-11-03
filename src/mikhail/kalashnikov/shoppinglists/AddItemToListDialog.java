@@ -67,7 +67,7 @@ public class AddItemToListDialog extends SherlockDialogFragment{
 			listView.setVisibility(View.GONE);
 			
 			String empty_category = getActivity().getResources().getString(R.string.empty_category);
-			Map<String, List<Item>> getCategoryItemMap = ModelFragment.getInstance().getCategoryItemMap(); 
+			Map<String, List<Item>> getCategoryItemMap = DataModel.getInstance(getActivity().getApplicationContext()).getCategoryItemMap(); 
 			List<Map<String, String>> groupData = new ArrayList<Map<String,String>>();
 			for(String category: getCategoryItemMap.keySet()){
 				Map<String, String> m = new HashMap<String, String>();
@@ -138,7 +138,7 @@ public class AddItemToListDialog extends SherlockDialogFragment{
 		}else{
 			expListView.setVisibility(View.GONE);
 			listView.setVisibility(View.VISIBLE);
-			items = ModelFragment.getInstance().getItems(); 
+			items = DataModel.getInstance(getActivity().getApplicationContext()).getItems(); 
 			ArrayAdapter<Item> adapter = new ArrayAdapter<Item>(getActivity(), android.R.layout.simple_list_item_1, items);
 			listView.addHeaderView(headerView);
 			listView.setAdapter(adapter);
