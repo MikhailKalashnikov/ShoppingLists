@@ -45,7 +45,7 @@ public class EditItemsFragment extends SherlockFragment
 	private List<Item> mItems;
 	private int[] mChildTo;
 	private String[] mChildFrom;
-	private ModelFragment mModel;
+	private DataModel mModel;
     
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -53,7 +53,7 @@ public class EditItemsFragment extends SherlockFragment
 		Log.d(TAG, "onCreate");
 		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
 		mShowCategory = prefs.getBoolean(SettingsActivity.KEY_PREF_USE_CATEGORY, true);
-		mModel = ModelFragment.getInstance();
+		mModel = DataModel.getInstance(getActivity().getApplicationContext());
 		mDBHelper = ShoppingListDBHelper.getInstance(getSherlockActivity());
 	}
 	

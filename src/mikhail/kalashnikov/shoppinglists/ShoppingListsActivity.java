@@ -15,8 +15,6 @@ import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.StrictMode;
-import android.preference.PreferenceManager;
 import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.View;
@@ -31,9 +29,9 @@ public class ShoppingListsActivity extends SherlockFragmentActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if(LogGuard.isDebug) Log.d(TAG, "onCreate getSupportFragmentManager().findFragmentByTag(MODEL)==null " + (getSupportFragmentManager().findFragmentByTag(MODEL)==null));
         if (getSupportFragmentManager().findFragmentByTag(MODEL)==null) {
-        	
-			model = ModelFragment.getInstance();
+			model = new ModelFragment();
 			getSupportFragmentManager().beginTransaction()
 				.add(model, MODEL)
 				.commit();
@@ -46,6 +44,7 @@ public class ShoppingListsActivity extends SherlockFragmentActivity
         bar=getSupportActionBar();
         bar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
         
+        if(LogGuard.isDebug) Log.d(TAG, "onCreate End");
     }
 
     @Override
@@ -77,7 +76,7 @@ public class ShoppingListsActivity extends SherlockFragmentActivity
 								
 								@Override
 								public void onClick(DialogInterface dialog, int which) {
-									model.deleteShoppingListWithItemsAsync((Long)bar.getSelectedTab().getTag());
+									model.getModel().deleteShoppingListWithItemsAsync((Long)bar.getSelectedTab().getTag());
 									bar.removeTabAt(bar.getSelectedNavigationIndex());
 									
 								}
@@ -101,6 +100,7 @@ public class ShoppingListsActivity extends SherlockFragmentActivity
     }
     
     void showListItems(List<ShoppingList> shoppingLists){
+    	Log.d(TAG, "showListItems model.isDataUploaded()=" + model.getModel().isDataUploaded());
     	findViewById(R.id.progressBar1).setVisibility(View.GONE);
         for (ShoppingList sl: shoppingLists) {
             bar.addTab(bar.newTab().setText(sl.getName())
@@ -111,16 +111,16 @@ public class ShoppingListsActivity extends SherlockFragmentActivity
 
 	@Override
 	public void onListAdded(String name) {
-		long id = model.insertShoppingListAsync(name);
+		long id = model.getModel().insertShoppingListAsync(name);
 		bar.addTab(bar.newTab().setText(name)
                 .setTabListener(this).setTag(id));
-		bar.setSelectedNavigationItem(model.getShoppingList().size()-1);
+		bar.setSelectedNavigationItem(model.getModel().getShoppingList().size()-1);
 		
 	}
 
 	@Override
 	public void onListEdited(String name, long id) {
-		model.updateShoppingListAsync(name, id);
+		model.getModel().updateShoppingListAsync(name, id);
 		bar.getSelectedTab().setText(name);
 	}
     
@@ -138,6 +138,7 @@ public class ShoppingListsActivity extends SherlockFragmentActivity
 
 	@Override
 	public void onTabSelected(Tab tab, FragmentTransaction ft) {
+		Log.d(TAG, "onTabSelected model.isDataUploaded()=" + model.getModel().isDataUploaded());
 		long id=((Long) tab.getTag()).longValue();
 
 	    ft.replace(android.R.id.content,

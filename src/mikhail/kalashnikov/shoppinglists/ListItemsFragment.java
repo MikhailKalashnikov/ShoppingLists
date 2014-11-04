@@ -33,8 +33,9 @@ public class ListItemsFragment extends SherlockListFragment
 		implements AddItemToListDialog.AddItemToListDialogListener, AddNewItemDialog.AddNewItemDialogListener, 
 			AddNewItemDialog.EditListItemDialogListener,
 			OnItemLongClickListener {
+	private final String TAG = getClass().getSimpleName();
 	private ArrayAdapter<ListItem> mAdapter;
-	private ModelFragment dataModel;
+	private DataModel dataModel;
 	private ActionMode activeMode = null;
 	private ListView listView=null;
 	private MessageBar mMessageBar;
@@ -54,50 +55,55 @@ public class ListItemsFragment extends SherlockListFragment
     
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {
+		Log.d(TAG, "onActivityCreated");
 		super.onActivityCreated(savedInstanceState);
 		setHasOptionsMenu(true);
 		
         mStrDeleted = getActivity().getString(R.string.msg_list_item_deleted);
         mStrUndo = getActivity().getString(R.string.msg_btn_undo);
         
-		dataModel = ModelFragment.getInstance();
+		dataModel = DataModel.getInstance(getActivity().getApplicationContext());
 		
-		mAdapter = new ShoppingListAdapter(dataModel.getListItems(getShownListId()));
-		
-		setListAdapter(mAdapter);
-		listView = getListView();
-		listView.setLongClickable(true);
-		listView.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
-		listView.setOnItemLongClickListener(this);
-		
-        mMessageBar = new MessageBar(getActivity());
-        mMessageBar.setOnClickListener(new OnMessageClickListener() {
-			@Override
-			public void onMessageClick(Parcelable token) {
-				((ShoppingListAdapter) mAdapter).undoRemove();
-				mMessageBar.clear();
-			}
-		});
-        
-		SwipeDismissListViewTouchListener touchListener =
-            new SwipeDismissListViewTouchListener(
-                    listView,
-                    new SwipeDismissListViewTouchListener.OnDismissCallback() {
-                        @Override
-                        public void onDismiss(ListView listView, int[] reverseSortedPositions) {
-                            for (int position : reverseSortedPositions) {
-                                mAdapter.remove(mAdapter.getItem(position));
-                            }
-                            mAdapter.notifyDataSetChanged();
-                            mMessageBar.show(mStrDeleted, mStrUndo, R.drawable.ic_messagebar_undo);
-                            
-                        }
-                    });
-		listView.setOnTouchListener(touchListener);
-		// Setting this scroll listener is required to ensure that during ListView scrolling,
-		// we don't look for swipes.
-		listView.setOnScrollListener(touchListener.makeScrollListener());
-		
+		Log.d(TAG, "getShownListId()=" + getShownListId()  + ", dataModel.isDataUploaded()=" + dataModel.isDataUploaded());
+		if(dataModel.isDataUploaded()){
+			mAdapter = new ShoppingListAdapter(dataModel.getListItems(getShownListId()));
+			
+			
+			setListAdapter(mAdapter);
+			listView = getListView();
+			listView.setLongClickable(true);
+			listView.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
+			listView.setOnItemLongClickListener(this);
+			
+	        mMessageBar = new MessageBar(getActivity());
+	        mMessageBar.setOnClickListener(new OnMessageClickListener() {
+				@Override
+				public void onMessageClick(Parcelable token) {
+					((ShoppingListAdapter) mAdapter).undoRemove();
+					mMessageBar.clear();
+				}
+			});
+	        
+			SwipeDismissListViewTouchListener touchListener =
+	            new SwipeDismissListViewTouchListener(
+	                    listView,
+	                    new SwipeDismissListViewTouchListener.OnDismissCallback() {
+	                        @Override
+	                        public void onDismiss(ListView listView, int[] reverseSortedPositions) {
+	                            for (int position : reverseSortedPositions) {
+	                                mAdapter.remove(mAdapter.getItem(position));
+	                            }
+	                            mAdapter.notifyDataSetChanged();
+	                            mMessageBar.show(mStrDeleted, mStrUndo, R.drawable.ic_messagebar_undo);
+	                            
+	                        }
+	                    });
+			listView.setOnTouchListener(touchListener);
+			// Setting this scroll listener is required to ensure that during ListView scrolling,
+			// we don't look for swipes.
+			listView.setOnScrollListener(touchListener.makeScrollListener());
+		}
+			
 	}
     
     @Override
@@ -137,7 +143,10 @@ public class ListItemsFragment extends SherlockListFragment
     @Override
     public void onResume() {
     	super.onResume();
-    	mAdapter.notifyDataSetChanged();
+    	Log.d(TAG, "onResume");
+    	if(dataModel.isDataUploaded()){
+    		mAdapter.notifyDataSetChanged();
+    	}
     }
 
     public long getShownListId() {
