@@ -31,7 +31,9 @@ public class ListItem implements BaseColumns{
 		this.id = id;
 		this.list_id = list_id;
 		this.item = item;
-		this.item.useItem();
+		if(item!=null){
+			this.item.useItem();
+		}
 		this.qty = qty;
 		this.isDone = isDone;
 	}

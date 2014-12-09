@@ -28,7 +28,7 @@ public final class R {
 		public static final int mbMessage = 0x7f050001;
 	}
 	public static final class layout {
-		public static final int mb__messagebar = 0x7f03001b;
+		public static final int mb__messagebar = 0x7f03001c;
 	}
 	public static final class style {
 		public static final int MessageBar = 0x7f060000;

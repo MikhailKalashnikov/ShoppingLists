@@ -167,7 +167,7 @@ public class SwipeDismissListViewTouchListener implements View.OnTouchListener {
 
     @Override
     public boolean onTouch(View view, MotionEvent motionEvent) {
-        if (mViewWidth < 2) {
+    	if (mViewWidth < 2) {
             mViewWidth = mListView.getWidth();
         }
 
@@ -199,6 +199,9 @@ public class SwipeDismissListViewTouchListener implements View.OnTouchListener {
                 if (mDownView != null) {
                     mDownX = motionEvent.getRawX();
                     mDownPosition = mListView.getPositionForView(mDownView);
+                    if(((ListItem)mListView.getAdapter().getItem(mDownPosition)).getId()<0){
+            			return true;
+            		}
 
                     mVelocityTracker = VelocityTracker.obtain();
                     mVelocityTracker.addMovement(motionEvent);

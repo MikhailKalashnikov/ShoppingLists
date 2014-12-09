@@ -12,15 +12,20 @@ import com.actionbarsherlock.view.ActionMode;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuInflater;
 import com.actionbarsherlock.view.MenuItem;
+import com.hb.views.PinnedSectionListView.PinnedSectionListAdapter;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.preference.PreferenceManager;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -32,7 +37,7 @@ import android.widget.TextView;
 public class ListItemsFragment extends SherlockListFragment 
 		implements AddItemToListDialog.AddItemToListDialogListener, AddNewItemDialog.AddNewItemDialogListener, 
 			AddNewItemDialog.EditListItemDialogListener,
-			OnItemLongClickListener {
+			OnItemLongClickListener, OnSharedPreferenceChangeListener {
 	private final String TAG = getClass().getSimpleName();
 	private ArrayAdapter<ListItem> mAdapter;
 	private DataModel dataModel;
@@ -41,6 +46,12 @@ public class ListItemsFragment extends SherlockListFragment
 	private MessageBar mMessageBar;
 	private String mStrDeleted;
 	private String mStrUndo;
+	private static final int[] COLORS = new int[] {
+		R.color.green_light, R.color.green_light, R.color.orange_light,
+        R.color.red_light, R.color.papaya_whip, R.color.sky_blue, R.color.light_golden, 
+        R.color.green_light2, R.color.rosy_brown, R.color.pale_turquoise,
+        R.color.grey_light,R.color.orange};
+	
 	
     public static ListItemsFragment newInstance(long listId) {
     	if(LogGuard.isDebug) Log.d("ListItemsFragment", "newInstance listId" + listId);
@@ -51,6 +62,13 @@ public class ListItemsFragment extends SherlockListFragment
         f.setArguments(args);
 
         return f;
+    }
+    
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    		Bundle savedInstanceState) {
+    	View view = inflater.inflate(R.layout.list_items, container, false);
+    	return view;
     }
     
 	@Override
@@ -103,7 +121,9 @@ public class ListItemsFragment extends SherlockListFragment
 			// we don't look for swipes.
 			listView.setOnScrollListener(touchListener.makeScrollListener());
 		}
-			
+		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
+		prefs.registerOnSharedPreferenceChangeListener(this);
+		
 	}
     
     @Override
@@ -157,9 +177,10 @@ public class ListItemsFragment extends SherlockListFragment
 		return(((ShoppingListAdapter)getListAdapter()).getItem(position));
 	}
 	  
-	class ShoppingListAdapter extends ArrayAdapter<ListItem>{
+	class ShoppingListAdapter extends ArrayAdapter<ListItem>  
+		implements PinnedSectionListAdapter {
 		ListItem removedListItem= null;
-		
+        
 		ShoppingListAdapter(List<ListItem> listItems) {
 			super(getActivity(), R.layout.list_item_row, R.id.item_name, listItems);
 		}
@@ -180,23 +201,29 @@ public class ListItemsFragment extends SherlockListFragment
 			}
 			
 			ListItem listItem = getModel(position);
-			
-			holder.qty.setText(listItem.getQty() + " - " + listItem.getItem().getQty_type());//TODO change format?
-			holder.name.setText(listItem.getItem().getName()); 
-			if(listItem.getIsDone()==1){
-				holder.qty.setPaintFlags(holder.qty.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
-				holder.qty.setBackgroundResource(R.color.doneTextViewColor);
-				holder.qty.setTypeface(null, Typeface.ITALIC);
-				holder.name.setPaintFlags(holder.name.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
-				holder.name.setBackgroundResource(R.color.doneTextViewColor);
-				holder.name.setTypeface(null, Typeface.ITALIC);
+			if(listItem.getId() < 0){
+				holder.name.setText(listItem.getQty());
+				row.setBackgroundColor(parent.getResources().getColor(COLORS[- (int) listItem.getId() % COLORS.length]));
+				holder.qty.setVisibility(View.GONE);
+				holder.name.setPadding(0, 0, 0, 0);
 			}else{
-				holder.qty.setPaintFlags(holder.qty.getPaintFlags() & (~Paint.STRIKE_THRU_TEXT_FLAG));
-				holder.qty.setTypeface(null, Typeface.NORMAL);
-				holder.qty.setBackgroundResource(android.R.color.transparent);
-				holder.name.setPaintFlags(holder.name.getPaintFlags() & (~Paint.STRIKE_THRU_TEXT_FLAG));
-				holder.name.setTypeface(null, Typeface.BOLD);
-				holder.name.setBackgroundResource(android.R.color.transparent);
+				holder.qty.setText(listItem.getQty() + " - " + listItem.getItem().getQty_type());//TODO change format?
+				holder.name.setText(listItem.getItem().getName()); 
+				if(listItem.getIsDone()==1){
+					holder.qty.setPaintFlags(holder.qty.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+					holder.qty.setBackgroundResource(R.color.doneTextViewColor);
+					holder.qty.setTypeface(null, Typeface.ITALIC);
+					holder.name.setPaintFlags(holder.name.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+					holder.name.setBackgroundResource(R.color.doneTextViewColor);
+					holder.name.setTypeface(null, Typeface.ITALIC);
+				}else{
+					holder.qty.setPaintFlags(holder.qty.getPaintFlags() & (~Paint.STRIKE_THRU_TEXT_FLAG));
+					holder.qty.setTypeface(null, Typeface.NORMAL);
+					holder.qty.setBackgroundResource(android.R.color.transparent);
+					holder.name.setPaintFlags(holder.name.getPaintFlags() & (~Paint.STRIKE_THRU_TEXT_FLAG));
+					holder.name.setTypeface(null, Typeface.BOLD);
+					holder.name.setBackgroundResource(android.R.color.transparent);
+				}
 			}
 			return (row);
 		}
@@ -226,6 +253,21 @@ public class ListItemsFragment extends SherlockListFragment
 			}
 			
 		}
+
+		@Override 
+		public int getViewTypeCount() {
+            return 2;
+        }
+
+        @Override 
+        public int getItemViewType(int position) {
+            return getModel(position).getId() < 0? 1:0;
+        }
+        
+		@Override
+		public boolean isItemViewTypePinned(int viewType) {
+			return viewType==1;
+		}
 	}
 	
 	class ViewHolder{
@@ -254,6 +296,9 @@ public class ListItemsFragment extends SherlockListFragment
 	@Override
 	public boolean onItemLongClick(AdapterView<?> view, View row,
 			int position, long id) {
+		if(((ListItem)listView.getAdapter().getItem(position)).getId()<0){
+			return true;
+		}
 		listView.clearChoices();
 		listView.setItemChecked(position, true);
 		if (activeMode == null) {
@@ -330,6 +375,17 @@ public class ListItemsFragment extends SherlockListFragment
 			String name, String qty_type, String category, long item_id) {
 		dataModel.updateListItemWithItemAsync(qty, listItem_id, list_id, isDone, name, qty_type, category, item_id);
 		mAdapter.notifyDataSetChanged();
+	}
+
+	@Override
+	public void onSharedPreferenceChanged(SharedPreferences sharedPreferences,
+			String key) {
+		if(key.equals(SettingsActivity.KEY_PREF_USE_CATEGORY_ON_MAIN_SCREEN)){
+			Boolean showCategoryOnMainScreen = sharedPreferences.getBoolean(SettingsActivity.KEY_PREF_USE_CATEGORY_ON_MAIN_SCREEN, true);
+			dataModel.switchShowCategoryOnMainScreen(showCategoryOnMainScreen);
+			mAdapter.notifyDataSetChanged();
+		}
+		
 	}
 
 }

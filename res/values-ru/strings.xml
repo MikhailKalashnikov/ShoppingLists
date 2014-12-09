@@ -38,6 +38,8 @@
 	<color name="doneTextViewColor">#B5B5B5</color>
 	
 	<string name="pref_category">Категории покупок</string>
+	<string name="pref_category_main_screen">Категории на главной странице</string>
+	<string name="pref_category_main_screen_summary">Показывать категории на главной странице</string>
 	<string name="mi_settings">Настройки</string>
 	<string name="msg_list_item_deleted">Удалено</string>
 	<string name="msg_btn_undo">Отменить</string>
