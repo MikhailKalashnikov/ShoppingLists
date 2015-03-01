@@ -111,7 +111,7 @@ public class ListItemsFragment extends SherlockListFragment
 	                            for (int position : reverseSortedPositions) {
 	                                mAdapter.remove(mAdapter.getItem(position));
 	                            }
-	                            mAdapter.notifyDataSetChanged();
+	                           // mAdapter.notifyDataSetChanged();
 	                            mMessageBar.show(mStrDeleted, mStrUndo, R.drawable.ic_messagebar_undo);
 	                            
 	                        }
@@ -202,6 +202,8 @@ public class ListItemsFragment extends SherlockListFragment
 			
 			ListItem listItem = getModel(position);
 			if(listItem.getId() < 0){
+//				Log.d(TAG, "getView position="+position + ", id="+listItem.getId()
+//						+ ", listItem =" + listItem.toString());
 				holder.name.setText(listItem.getQty());
 				row.setBackgroundColor(parent.getResources().getColor(COLORS[- (int) listItem.getId() % COLORS.length]));
 				holder.qty.setVisibility(View.GONE);

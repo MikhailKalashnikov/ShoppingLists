@@ -362,6 +362,7 @@ public class DataModel implements ShoppingDataListener {
 	}
 	
 	void deleteListItemAsync(long id, long list_id) {
+		if(LogGuard.isDebug) Log.d(TAG, "deleteListItemAsync id=" + id +",  list_id=" + list_id);
 		if(mShowCategoryOnMainScreen){
 			boolean isUpdated=false;
 			String deletedFromCategory = null;
