@@ -189,6 +189,7 @@ public class ListItemsFragment extends SherlockListFragment
 		public void remove(ListItem listItem) {
 			removedListItem = listItem;
 			dataModel.deleteListItemAsync(listItem.getId(), getShownListId());
+			notifyDataSetChanged();
 		}
 		@Override
 		public View getView(int position, View convertView, ViewGroup parent) {

@@ -412,7 +412,7 @@ public class ShoppingListDBHelper extends SQLiteOpenHelper {
 	}	
 	
 	void insertItemAsync(String name, String qty_type, String category) {
-		if(LogGuard.isDebug) Log.d(TAG, "deleteItemAsync: name="+name + ", qty_type=" + qty_type);
+		if(LogGuard.isDebug) Log.d(TAG, "insertItemAsync: name="+name + ", qty_type=" + qty_type);
 		Item item = new Item(name, qty_type, category);
 		ModelFragment.executeAsyncTask(new InsertItemTask(item));
 	}

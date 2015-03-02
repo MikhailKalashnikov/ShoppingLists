@@ -2378,6 +2378,9 @@ mikhail.kalashnikov.shoppinglists.AddNewListDialog:
     public static final int NEW_LIST_ID
 mikhail.kalashnikov.shoppinglists.BuildConfig
 mikhail.kalashnikov.shoppinglists.Category
+mikhail.kalashnikov.shoppinglists.DataModel:
+    151:151:java.util.List getCategory()
+    258:259:void insertItemAsync(java.lang.String,java.lang.String,java.lang.String)
 mikhail.kalashnikov.shoppinglists.EditItemsFragment:
     private static final java.lang.String ATTR_GROUP_NAME
     private static final java.lang.String ATTR_ITEM_NAME
@@ -2402,11 +2405,8 @@ mikhail.kalashnikov.shoppinglists.ListItem:
     public static final int DONE
     public static final int NOT_DONE
 mikhail.kalashnikov.shoppinglists.ListItemsFragment:
-    315:317:public void onListItemEdited(java.lang.String,long,long,int)
+    372:374:public void onListItemEdited(java.lang.String,long,long,int)
 mikhail.kalashnikov.shoppinglists.LogGuard
-mikhail.kalashnikov.shoppinglists.ModelFragment:
-    97:97:java.util.List getCategory()
-    183:184:void insertItemAsync(java.lang.String,java.lang.String,java.lang.String)
 mikhail.kalashnikov.shoppinglists.R
 mikhail.kalashnikov.shoppinglists.R$array
 mikhail.kalashnikov.shoppinglists.R$attr
@@ -2424,6 +2424,7 @@ mikhail.kalashnikov.shoppinglists.R$styleable
 mikhail.kalashnikov.shoppinglists.R$xml
 mikhail.kalashnikov.shoppinglists.SettingsActivity:
     static final java.lang.String KEY_PREF_USE_CATEGORY
+    static final java.lang.String KEY_PREF_USE_CATEGORY_ON_MAIN_SCREEN
 mikhail.kalashnikov.shoppinglists.ShoppingList:
     public static final java.lang.String TABLE_NAME
     public static final java.lang.String COLUMN_NAME
@@ -2431,7 +2432,7 @@ mikhail.kalashnikov.shoppinglists.ShoppingList:
 mikhail.kalashnikov.shoppinglists.ShoppingListDBHelper:
     private static final java.lang.String DATABASE_NAME
     private static final int SCHEMA_VERSION
-    412:414:void insertItemAsync(java.lang.String,java.lang.String,java.lang.String)
+    416:418:void insertItemAsync(java.lang.String,java.lang.String,java.lang.String)
 mikhail.kalashnikov.shoppinglists.ShoppingListDBHelper$InsertItemTask
 mikhail.kalashnikov.shoppinglists.ShoppingListsActivity:
     private static final java.lang.String MODEL

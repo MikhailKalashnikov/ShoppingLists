@@ -4483,6 +4483,64 @@ com.actionbarsherlock.widget.SuggestionsAdapter$ChildViewCache -> com.actionbars
     android.widget.ImageView mIcon1 -> c
     android.widget.ImageView mIcon2 -> d
     android.widget.ImageView mIconRefine -> e
+com.hb.views.PinnedSectionListView -> com.hb.views.PinnedSectionListView:
+    android.graphics.Rect mTouchRect -> e
+    android.graphics.PointF mTouchPoint -> f
+    int mTouchSlop -> g
+    android.view.View mTouchTarget -> h
+    android.view.MotionEvent mDownEvent -> i
+    android.graphics.drawable.GradientDrawable mShadowDrawable -> j
+    int mSectionsDistanceY -> k
+    int mShadowHeight -> l
+    android.widget.AbsListView$OnScrollListener mDelegateOnScrollListener -> a
+    com.hb.views.PinnedSectionListView$PinnedSection mRecycleSection -> b
+    com.hb.views.PinnedSectionListView$PinnedSection mPinnedSection -> c
+    int mTranslateY -> d
+    android.widget.AbsListView$OnScrollListener mOnScrollListener -> m
+    android.database.DataSetObserver mDataSetObserver -> n
+    void initView() -> c
+    void setShadowVisible(boolean) -> setShadowVisible
+    void initShadow(boolean) -> a
+    void createPinnedShadow(int) -> a
+    void destroyPinnedShadow() -> a
+    void ensureShadowForPosition(int,int,int) -> a
+    int findFirstVisibleSectionPosition(int,int) -> a
+    int findCurrentSectionPosition(int) -> b
+    void recreatePinnedShadow() -> b
+    void setOnScrollListener(android.widget.AbsListView$OnScrollListener) -> setOnScrollListener
+    void onRestoreInstanceState(android.os.Parcelable) -> onRestoreInstanceState
+    void setAdapter(android.widget.ListAdapter) -> setAdapter
+    void onLayout(boolean,int,int,int,int) -> onLayout
+    void dispatchDraw(android.graphics.Canvas) -> dispatchDraw
+    boolean dispatchTouchEvent(android.view.MotionEvent) -> dispatchTouchEvent
+    boolean isPinnedViewTouched(android.view.View,float,float) -> a
+    void clearTouchTarget() -> d
+    boolean performPinnedItemClick() -> e
+    boolean isItemViewTypePinned(android.widget.ListAdapter,int) -> a
+com.hb.views.PinnedSectionListView$1 -> com.hb.views.a:
+    com.hb.views.PinnedSectionListView this$0 -> a
+    void onScrollStateChanged(android.widget.AbsListView,int) -> onScrollStateChanged
+    void onScroll(android.widget.AbsListView,int,int,int) -> onScroll
+com.hb.views.PinnedSectionListView$2 -> com.hb.views.b:
+    com.hb.views.PinnedSectionListView this$0 -> a
+    void onChanged() -> onChanged
+    void onInvalidated() -> onInvalidated
+    com.hb.views.PinnedSectionListView access$0(com.hb.views.PinnedSectionListView$2) -> a
+com.hb.views.PinnedSectionListView$2$1 -> com.hb.views.c:
+    com.hb.views.PinnedSectionListView$2 this$1 -> a
+    void run() -> run
+com.hb.views.PinnedSectionListView$2$2 -> com.hb.views.d:
+    com.hb.views.PinnedSectionListView$2 this$1 -> a
+    void run() -> run
+com.hb.views.PinnedSectionListView$3 -> com.hb.views.e:
+    com.hb.views.PinnedSectionListView this$0 -> a
+    void run() -> run
+com.hb.views.PinnedSectionListView$PinnedSection -> com.hb.views.f:
+    android.view.View view -> a
+    int position -> b
+    long id -> c
+com.hb.views.PinnedSectionListView$PinnedSectionListAdapter -> com.hb.views.g:
+    boolean isItemViewTypePinned(int) -> a
 com.nineoldandroids.animation.Animator -> com.a.a.a:
     java.util.ArrayList mListeners -> a
     void start() -> a
@@ -4945,10 +5003,91 @@ mikhail.kalashnikov.shoppinglists.AddNewListDialog$1 -> mikhail.kalashnikov.shop
 mikhail.kalashnikov.shoppinglists.AddNewListDialog$AddNewListDialogListener -> mikhail.kalashnikov.shoppinglists.n:
     void onListAdded(java.lang.String) -> a_
     void onListEdited(java.lang.String,long) -> a
+mikhail.kalashnikov.shoppinglists.DataModel -> mikhail.kalashnikov.shoppinglists.o:
+    java.lang.String TAG -> a
+    java.util.List shoppingLists -> b
+    java.util.Map itemsMap -> c
+    java.util.Map listItemsMap -> d
+    java.util.Map mapItemsMapWithCategory -> e
+    boolean mIsDataUploaded -> f
+    mikhail.kalashnikov.shoppinglists.ShoppingListDBHelper dbHelper -> g
+    mikhail.kalashnikov.shoppinglists.DataModel singleton -> h
+    mikhail.kalashnikov.shoppinglists.ShoppingListDBHelper$ShoppingDataListener mListener -> i
+    boolean mShowCategoryOnMainScreen -> j
+    mikhail.kalashnikov.shoppinglists.DataModel getInstance(android.content.Context) -> a
+    void uploadData(mikhail.kalashnikov.shoppinglists.ShoppingListDBHelper$ShoppingDataListener) -> a
+    void updateShoppingData(java.util.List,java.util.List,java.util.Map) -> a
+    void rebuildListWithCategory(long) -> c
+    java.util.List getListItems(long) -> a
+    void switchShowCategoryOnMainScreen(java.lang.Boolean) -> a
+    java.util.List getShoppingList() -> a
+    java.util.List getItems() -> b
+    java.util.Map getCategoryItemMap() -> c
+    boolean isDataUploaded() -> d
+    void insertListItemAsync(long,long,java.lang.String) -> a
+    void insertItemAndAddToListAsync(java.lang.String,java.lang.String,java.lang.String,long,java.lang.String) -> a
+    long insertShoppingListAsync(java.lang.String) -> a
+    void deleteShoppingListWithItemsAsync(long) -> b
+    void updateShoppingListAsync(java.lang.String,long) -> a
+    void deleteListItemAsync(long,long) -> a
+    void deleteAllListItemFromListAsync(long,boolean) -> a
+    void updateListItemAsync(java.lang.String,long,long,int) -> a
+    void updateListItemWithItemAsync(java.lang.String,long,long,int,java.lang.String,java.lang.String,java.lang.String,long) -> a
+    mikhail.kalashnikov.shoppinglists.ShoppingListDBHelper access$0(mikhail.kalashnikov.shoppinglists.DataModel) -> a
+    java.util.Map access$1(mikhail.kalashnikov.shoppinglists.DataModel) -> b
+mikhail.kalashnikov.shoppinglists.DataModel$DeleteAllListItemFromListTask -> mikhail.kalashnikov.shoppinglists.p:
+    long list_id -> b
+    boolean onlyDone -> c
+    mikhail.kalashnikov.shoppinglists.DataModel this$0 -> a
+    java.lang.Void doInBackground(java.lang.Void[]) -> a
+    java.lang.Object doInBackground(java.lang.Object[]) -> doInBackground
+mikhail.kalashnikov.shoppinglists.DataModel$DeleteListItemTask -> mikhail.kalashnikov.shoppinglists.q:
+    long id -> b
+    mikhail.kalashnikov.shoppinglists.DataModel this$0 -> a
+    java.lang.Void doInBackground(java.lang.Void[]) -> a
+    java.lang.Object doInBackground(java.lang.Object[]) -> doInBackground
+mikhail.kalashnikov.shoppinglists.DataModel$DeleteShoppingListWithItemsTask -> mikhail.kalashnikov.shoppinglists.r:
+    long id -> b
+    mikhail.kalashnikov.shoppinglists.DataModel this$0 -> a
+    java.lang.Void doInBackground(java.lang.Void[]) -> a
+    java.lang.Object doInBackground(java.lang.Object[]) -> doInBackground
+mikhail.kalashnikov.shoppinglists.DataModel$InsertItemAndAddToListTask -> mikhail.kalashnikov.shoppinglists.s:
+    mikhail.kalashnikov.shoppinglists.Item item -> b
+    mikhail.kalashnikov.shoppinglists.ListItem listItem -> c
+    long newRowId -> d
+    boolean itemExists -> e
+    mikhail.kalashnikov.shoppinglists.DataModel this$0 -> a
+    java.lang.Void doInBackground(java.lang.Void[]) -> a
+    void onPostExecute(java.lang.Void) -> a
+    void onPostExecute(java.lang.Object) -> onPostExecute
+    java.lang.Object doInBackground(java.lang.Object[]) -> doInBackground
+mikhail.kalashnikov.shoppinglists.DataModel$InsertListItemTask -> mikhail.kalashnikov.shoppinglists.t:
+    mikhail.kalashnikov.shoppinglists.ListItem listItem -> b
+    long newRowId -> c
+    mikhail.kalashnikov.shoppinglists.DataModel this$0 -> a
+    java.lang.Void doInBackground(java.lang.Void[]) -> a
+    void onPostExecute(java.lang.Void) -> a
+    void onPostExecute(java.lang.Object) -> onPostExecute
+    java.lang.Object doInBackground(java.lang.Object[]) -> doInBackground
+mikhail.kalashnikov.shoppinglists.DataModel$InsertShoppingListTask -> mikhail.kalashnikov.shoppinglists.u:
+    mikhail.kalashnikov.shoppinglists.ShoppingList list -> b
+    mikhail.kalashnikov.shoppinglists.DataModel this$0 -> a
+    java.lang.Void doInBackground(java.lang.Void[]) -> a
+    java.lang.Object doInBackground(java.lang.Object[]) -> doInBackground
+mikhail.kalashnikov.shoppinglists.DataModel$UpdateListItemTask -> mikhail.kalashnikov.shoppinglists.v:
+    mikhail.kalashnikov.shoppinglists.ListItem listItem -> b
+    mikhail.kalashnikov.shoppinglists.DataModel this$0 -> a
+    java.lang.Void doInBackground(java.lang.Void[]) -> a
+    java.lang.Object doInBackground(java.lang.Object[]) -> doInBackground
+mikhail.kalashnikov.shoppinglists.DataModel$UpdateShoppingListTask -> mikhail.kalashnikov.shoppinglists.w:
+    mikhail.kalashnikov.shoppinglists.ShoppingList list -> b
+    mikhail.kalashnikov.shoppinglists.DataModel this$0 -> a
+    java.lang.Void doInBackground(java.lang.Void[]) -> a
+    java.lang.Object doInBackground(java.lang.Object[]) -> doInBackground
 mikhail.kalashnikov.shoppinglists.EditItemFragmentActivity -> mikhail.kalashnikov.shoppinglists.EditItemFragmentActivity:
     void onCreate(android.os.Bundle) -> onCreate
     boolean onOptionsItemSelected(com.actionbarsherlock.view.MenuItem) -> a
-mikhail.kalashnikov.shoppinglists.EditItemsFragment -> mikhail.kalashnikov.shoppinglists.o:
+mikhail.kalashnikov.shoppinglists.EditItemsFragment -> mikhail.kalashnikov.shoppinglists.x:
     java.lang.String TAG -> a
     android.widget.ArrayAdapter mAdapter -> b
     android.widget.SimpleExpandableListAdapter mExpandableListAdapter -> c
@@ -4960,7 +5099,7 @@ mikhail.kalashnikov.shoppinglists.EditItemsFragment -> mikhail.kalashnikov.shopp
     java.util.List mItems -> i
     int[] mChildTo -> Y
     java.lang.String[] mChildFrom -> Z
-    mikhail.kalashnikov.shoppinglists.ModelFragment mModel -> aa
+    mikhail.kalashnikov.shoppinglists.DataModel mModel -> aa
     com.actionbarsherlock.view.ActionMode$Callback actionModeCallback -> ab
     void onCreate(android.os.Bundle) -> a
     void onActivityCreated(android.os.Bundle) -> d
@@ -4980,32 +5119,32 @@ mikhail.kalashnikov.shoppinglists.EditItemsFragment -> mikhail.kalashnikov.shopp
     java.lang.String[] access$6(mikhail.kalashnikov.shoppinglists.EditItemsFragment) -> e
     int[] access$7(mikhail.kalashnikov.shoppinglists.EditItemsFragment) -> f
     java.util.List access$8(mikhail.kalashnikov.shoppinglists.EditItemsFragment) -> g
-mikhail.kalashnikov.shoppinglists.EditItemsFragment$1 -> mikhail.kalashnikov.shoppinglists.p:
+mikhail.kalashnikov.shoppinglists.EditItemsFragment$1 -> mikhail.kalashnikov.shoppinglists.y:
     mikhail.kalashnikov.shoppinglists.EditItemsFragment this$0 -> a
     boolean onCreateActionMode(com.actionbarsherlock.view.ActionMode,com.actionbarsherlock.view.Menu) -> a
     boolean onActionItemClicked(com.actionbarsherlock.view.ActionMode,com.actionbarsherlock.view.MenuItem) -> a
     void onDestroyActionMode(com.actionbarsherlock.view.ActionMode) -> a
     boolean onPrepareActionMode(com.actionbarsherlock.view.ActionMode,com.actionbarsherlock.view.Menu) -> b
-mikhail.kalashnikov.shoppinglists.EditItemsFragment$2 -> mikhail.kalashnikov.shoppinglists.q:
+mikhail.kalashnikov.shoppinglists.EditItemsFragment$2 -> mikhail.kalashnikov.shoppinglists.z:
     mikhail.kalashnikov.shoppinglists.EditItemsFragment this$0 -> a
     android.view.View getChildView(int,int,boolean,android.view.View,android.view.ViewGroup) -> getChildView
     void bindView(android.view.View,java.util.Map,java.lang.String[],int[]) -> a
-mikhail.kalashnikov.shoppinglists.EditItemsFragment$3 -> mikhail.kalashnikov.shoppinglists.r:
+mikhail.kalashnikov.shoppinglists.EditItemsFragment$3 -> mikhail.kalashnikov.shoppinglists.aa:
     mikhail.kalashnikov.shoppinglists.EditItemsFragment this$0 -> a
     boolean onChildClick(android.widget.ExpandableListView,android.view.View,int,int,long) -> onChildClick
-mikhail.kalashnikov.shoppinglists.EditItemsFragment$4 -> mikhail.kalashnikov.shoppinglists.s:
+mikhail.kalashnikov.shoppinglists.EditItemsFragment$4 -> mikhail.kalashnikov.shoppinglists.ab:
     mikhail.kalashnikov.shoppinglists.EditItemsFragment this$0 -> a
     void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
-mikhail.kalashnikov.shoppinglists.EditItemsFragment$5 -> mikhail.kalashnikov.shoppinglists.t:
+mikhail.kalashnikov.shoppinglists.EditItemsFragment$5 -> mikhail.kalashnikov.shoppinglists.ac:
     mikhail.kalashnikov.shoppinglists.EditItemsFragment this$0 -> Y
     android.app.Dialog onCreateDialog(android.os.Bundle) -> c
-mikhail.kalashnikov.shoppinglists.EditItemsFragment$ExpandableListPosition -> mikhail.kalashnikov.shoppinglists.u:
+mikhail.kalashnikov.shoppinglists.EditItemsFragment$ExpandableListPosition -> mikhail.kalashnikov.shoppinglists.ad:
     int type -> a
     int group -> b
     int child_position -> c
     mikhail.kalashnikov.shoppinglists.EditItemsFragment this$0 -> d
     java.lang.String toString() -> toString
-mikhail.kalashnikov.shoppinglists.Item -> mikhail.kalashnikov.shoppinglists.v:
+mikhail.kalashnikov.shoppinglists.Item -> mikhail.kalashnikov.shoppinglists.ae:
     long id -> a
     java.lang.String name -> b
     java.lang.String qty_type -> c
@@ -5026,7 +5165,7 @@ mikhail.kalashnikov.shoppinglists.Item -> mikhail.kalashnikov.shoppinglists.v:
     java.lang.String toStringFull() -> h
     int compareTo(mikhail.kalashnikov.shoppinglists.Item) -> a
     int compareTo(java.lang.Object) -> compareTo
-mikhail.kalashnikov.shoppinglists.ListItem -> mikhail.kalashnikov.shoppinglists.w:
+mikhail.kalashnikov.shoppinglists.ListItem -> mikhail.kalashnikov.shoppinglists.af:
     long id -> a
     long list_id -> b
     java.lang.String qty -> c
@@ -5042,16 +5181,19 @@ mikhail.kalashnikov.shoppinglists.ListItem -> mikhail.kalashnikov.shoppinglists.
     void setIsDone(int) -> a
     void setQty(java.lang.String) -> a
     java.lang.String toString() -> toString
-mikhail.kalashnikov.shoppinglists.ListItemsFragment -> mikhail.kalashnikov.shoppinglists.x:
-    android.widget.ArrayAdapter mAdapter -> i
-    mikhail.kalashnikov.shoppinglists.ModelFragment dataModel -> Y
-    com.actionbarsherlock.view.ActionMode activeMode -> Z
-    android.widget.ListView listView -> aa
-    net.simonvt.messagebar.MessageBar mMessageBar -> ab
-    java.lang.String mStrDeleted -> ac
-    java.lang.String mStrUndo -> ad
-    com.actionbarsherlock.view.ActionMode$Callback actionModeCallback -> ae
+mikhail.kalashnikov.shoppinglists.ListItemsFragment -> mikhail.kalashnikov.shoppinglists.ag:
+    java.lang.String TAG -> i
+    android.widget.ArrayAdapter mAdapter -> Y
+    mikhail.kalashnikov.shoppinglists.DataModel dataModel -> Z
+    com.actionbarsherlock.view.ActionMode activeMode -> aa
+    android.widget.ListView listView -> ab
+    net.simonvt.messagebar.MessageBar mMessageBar -> ac
+    java.lang.String mStrDeleted -> ad
+    java.lang.String mStrUndo -> ae
+    int[] COLORS -> af
+    com.actionbarsherlock.view.ActionMode$Callback actionModeCallback -> ag
     mikhail.kalashnikov.shoppinglists.ListItemsFragment newInstance(long) -> a
+    android.view.View onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle) -> a
     void onActivityCreated(android.os.Bundle) -> d
     boolean onOptionsItemSelected(com.actionbarsherlock.view.MenuItem) -> a
     void onResume() -> q
@@ -5063,136 +5205,72 @@ mikhail.kalashnikov.shoppinglists.ListItemsFragment -> mikhail.kalashnikov.shopp
     void editListItem(int) -> a
     void deleteItemFromList(int) -> b
     void onListItemWithItemEdited(java.lang.String,long,long,int,java.lang.String,java.lang.String,java.lang.String,long) -> a
+    void onSharedPreferenceChanged(android.content.SharedPreferences,java.lang.String) -> onSharedPreferenceChanged
     android.widget.ListView access$0(mikhail.kalashnikov.shoppinglists.ListItemsFragment) -> a
     void access$1(mikhail.kalashnikov.shoppinglists.ListItemsFragment,com.actionbarsherlock.view.ActionMode) -> a
-    mikhail.kalashnikov.shoppinglists.ModelFragment access$2(mikhail.kalashnikov.shoppinglists.ListItemsFragment) -> b
+    mikhail.kalashnikov.shoppinglists.DataModel access$2(mikhail.kalashnikov.shoppinglists.ListItemsFragment) -> b
     mikhail.kalashnikov.shoppinglists.ListItem access$3(mikhail.kalashnikov.shoppinglists.ListItemsFragment,int) -> a
-    android.widget.ArrayAdapter access$4(mikhail.kalashnikov.shoppinglists.ListItemsFragment) -> c
-    net.simonvt.messagebar.MessageBar access$5(mikhail.kalashnikov.shoppinglists.ListItemsFragment) -> d
-    java.lang.String access$6(mikhail.kalashnikov.shoppinglists.ListItemsFragment) -> e
-    java.lang.String access$7(mikhail.kalashnikov.shoppinglists.ListItemsFragment) -> f
-mikhail.kalashnikov.shoppinglists.ListItemsFragment$1 -> mikhail.kalashnikov.shoppinglists.y:
+    int[] access$4() -> G
+    android.widget.ArrayAdapter access$5(mikhail.kalashnikov.shoppinglists.ListItemsFragment) -> c
+    net.simonvt.messagebar.MessageBar access$6(mikhail.kalashnikov.shoppinglists.ListItemsFragment) -> d
+    java.lang.String access$7(mikhail.kalashnikov.shoppinglists.ListItemsFragment) -> e
+    java.lang.String access$8(mikhail.kalashnikov.shoppinglists.ListItemsFragment) -> f
+mikhail.kalashnikov.shoppinglists.ListItemsFragment$1 -> mikhail.kalashnikov.shoppinglists.ah:
     mikhail.kalashnikov.shoppinglists.ListItemsFragment this$0 -> a
     boolean onCreateActionMode(com.actionbarsherlock.view.ActionMode,com.actionbarsherlock.view.Menu) -> a
     boolean onActionItemClicked(com.actionbarsherlock.view.ActionMode,com.actionbarsherlock.view.MenuItem) -> a
     void onDestroyActionMode(com.actionbarsherlock.view.ActionMode) -> a
     boolean onPrepareActionMode(com.actionbarsherlock.view.ActionMode,com.actionbarsherlock.view.Menu) -> b
-mikhail.kalashnikov.shoppinglists.ListItemsFragment$2 -> mikhail.kalashnikov.shoppinglists.z:
+mikhail.kalashnikov.shoppinglists.ListItemsFragment$2 -> mikhail.kalashnikov.shoppinglists.ai:
     mikhail.kalashnikov.shoppinglists.ListItemsFragment this$0 -> a
     void onMessageClick(android.os.Parcelable) -> a
-mikhail.kalashnikov.shoppinglists.ListItemsFragment$3 -> mikhail.kalashnikov.shoppinglists.aa:
+mikhail.kalashnikov.shoppinglists.ListItemsFragment$3 -> mikhail.kalashnikov.shoppinglists.aj:
     mikhail.kalashnikov.shoppinglists.ListItemsFragment this$0 -> a
     void onDismiss(android.widget.ListView,int[]) -> a
-mikhail.kalashnikov.shoppinglists.ListItemsFragment$4 -> mikhail.kalashnikov.shoppinglists.ab:
+mikhail.kalashnikov.shoppinglists.ListItemsFragment$4 -> mikhail.kalashnikov.shoppinglists.ak:
     mikhail.kalashnikov.shoppinglists.ListItemsFragment this$0 -> Y
     android.app.Dialog onCreateDialog(android.os.Bundle) -> c
     mikhail.kalashnikov.shoppinglists.ListItemsFragment access$0(mikhail.kalashnikov.shoppinglists.ListItemsFragment$4) -> a
-mikhail.kalashnikov.shoppinglists.ListItemsFragment$4$1 -> mikhail.kalashnikov.shoppinglists.ac:
+mikhail.kalashnikov.shoppinglists.ListItemsFragment$4$1 -> mikhail.kalashnikov.shoppinglists.al:
     mikhail.kalashnikov.shoppinglists.ListItemsFragment$4 this$1 -> a
     void onClick(android.content.DialogInterface,int) -> onClick
-mikhail.kalashnikov.shoppinglists.ListItemsFragment$ShoppingListAdapter -> mikhail.kalashnikov.shoppinglists.ad:
+mikhail.kalashnikov.shoppinglists.ListItemsFragment$ShoppingListAdapter -> mikhail.kalashnikov.shoppinglists.am:
     mikhail.kalashnikov.shoppinglists.ListItem removedListItem -> a
     mikhail.kalashnikov.shoppinglists.ListItemsFragment this$0 -> b
     void remove(mikhail.kalashnikov.shoppinglists.ListItem) -> a
     android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
     void notifyDataSetChanged() -> notifyDataSetChanged
     void undoRemove() -> a
+    int getViewTypeCount() -> getViewTypeCount
+    int getItemViewType(int) -> getItemViewType
+    boolean isItemViewTypePinned(int) -> a
     void remove(java.lang.Object) -> remove
-mikhail.kalashnikov.shoppinglists.ListItemsFragment$ShoppingListAdapter$1 -> mikhail.kalashnikov.shoppinglists.ae:
+mikhail.kalashnikov.shoppinglists.ListItemsFragment$ShoppingListAdapter$1 -> mikhail.kalashnikov.shoppinglists.an:
     mikhail.kalashnikov.shoppinglists.ListItemsFragment$ShoppingListAdapter this$1 -> a
     int compare(mikhail.kalashnikov.shoppinglists.ListItem,mikhail.kalashnikov.shoppinglists.ListItem) -> a
     int compare(java.lang.Object,java.lang.Object) -> compare
-mikhail.kalashnikov.shoppinglists.ListItemsFragment$ViewHolder -> mikhail.kalashnikov.shoppinglists.af:
+mikhail.kalashnikov.shoppinglists.ListItemsFragment$ViewHolder -> mikhail.kalashnikov.shoppinglists.ao:
     android.widget.TextView qty -> a
     android.widget.TextView name -> b
     mikhail.kalashnikov.shoppinglists.ListItemsFragment this$0 -> c
-mikhail.kalashnikov.shoppinglists.ModelFragment -> mikhail.kalashnikov.shoppinglists.ag:
+mikhail.kalashnikov.shoppinglists.ModelFragment -> mikhail.kalashnikov.shoppinglists.ap:
     java.lang.String TAG -> a
-    java.util.List shoppingLists -> b
-    java.util.Map itemsMap -> c
-    java.util.Map listItemsMap -> d
-    boolean isDataUploaded -> e
-    mikhail.kalashnikov.shoppinglists.ShoppingListDBHelper dbHelper -> f
-    mikhail.kalashnikov.shoppinglists.ModelFragment singleton -> g
-    mikhail.kalashnikov.shoppinglists.ModelFragment getInstance() -> b
+    mikhail.kalashnikov.shoppinglists.DataModel model -> b
     void onActivityCreated(android.os.Bundle) -> d
-    void uploadData() -> E
-    void executeAsyncTask(android.os.AsyncTask,java.lang.Object[]) -> a
+    void uploadData() -> b
     void updateShoppingData(java.util.List,java.util.List,java.util.Map) -> a
-    java.util.List getListItems(long) -> a
-    java.util.List getShoppingList() -> F
-    java.util.List getItems() -> G
-    java.util.Map getCategoryItemMap() -> H
-    void insertListItemAsync(long,long,java.lang.String) -> a
-    void insertItemAndAddToListAsync(java.lang.String,java.lang.String,java.lang.String,long,java.lang.String) -> a
-    long insertShoppingListAsync(java.lang.String) -> a
-    void deleteShoppingListWithItemsAsync(long) -> b
-    void updateShoppingListAsync(java.lang.String,long) -> a
-    void deleteListItemAsync(long,long) -> a
-    void deleteAllListItemFromListAsync(long,boolean) -> a
-    void updateListItemAsync(java.lang.String,long,long,int) -> a
-    void updateListItemWithItemAsync(java.lang.String,long,long,int,java.lang.String,java.lang.String,java.lang.String,long) -> a
-    mikhail.kalashnikov.shoppinglists.ShoppingListDBHelper access$0(mikhail.kalashnikov.shoppinglists.ModelFragment) -> a
-    java.util.Map access$1(mikhail.kalashnikov.shoppinglists.ModelFragment) -> b
-mikhail.kalashnikov.shoppinglists.ModelFragment$DeleteAllListItemFromListTask -> mikhail.kalashnikov.shoppinglists.ah:
-    long list_id -> b
-    boolean onlyDone -> c
-    mikhail.kalashnikov.shoppinglists.ModelFragment this$0 -> a
-    java.lang.Void doInBackground(java.lang.Void[]) -> a
-    java.lang.Object doInBackground(java.lang.Object[]) -> doInBackground
-mikhail.kalashnikov.shoppinglists.ModelFragment$DeleteListItemTask -> mikhail.kalashnikov.shoppinglists.ai:
-    long id -> b
-    mikhail.kalashnikov.shoppinglists.ModelFragment this$0 -> a
-    java.lang.Void doInBackground(java.lang.Void[]) -> a
-    java.lang.Object doInBackground(java.lang.Object[]) -> doInBackground
-mikhail.kalashnikov.shoppinglists.ModelFragment$DeleteShoppingListWithItemsTask -> mikhail.kalashnikov.shoppinglists.aj:
-    long id -> b
-    mikhail.kalashnikov.shoppinglists.ModelFragment this$0 -> a
-    java.lang.Void doInBackground(java.lang.Void[]) -> a
-    java.lang.Object doInBackground(java.lang.Object[]) -> doInBackground
-mikhail.kalashnikov.shoppinglists.ModelFragment$InsertItemAndAddToListTask -> mikhail.kalashnikov.shoppinglists.ak:
-    mikhail.kalashnikov.shoppinglists.Item item -> b
-    mikhail.kalashnikov.shoppinglists.ListItem listItem -> c
-    long newRowId -> d
-    boolean itemExists -> e
-    mikhail.kalashnikov.shoppinglists.ModelFragment this$0 -> a
-    java.lang.Void doInBackground(java.lang.Void[]) -> a
-    void onPostExecute(java.lang.Void) -> a
-    void onPostExecute(java.lang.Object) -> onPostExecute
-    java.lang.Object doInBackground(java.lang.Object[]) -> doInBackground
-mikhail.kalashnikov.shoppinglists.ModelFragment$InsertListItemTask -> mikhail.kalashnikov.shoppinglists.al:
-    mikhail.kalashnikov.shoppinglists.ListItem listItem -> b
-    long newRowId -> c
-    mikhail.kalashnikov.shoppinglists.ModelFragment this$0 -> a
-    java.lang.Void doInBackground(java.lang.Void[]) -> a
-    void onPostExecute(java.lang.Void) -> a
-    void onPostExecute(java.lang.Object) -> onPostExecute
-    java.lang.Object doInBackground(java.lang.Object[]) -> doInBackground
-mikhail.kalashnikov.shoppinglists.ModelFragment$InsertShoppingListTask -> mikhail.kalashnikov.shoppinglists.am:
-    mikhail.kalashnikov.shoppinglists.ShoppingList list -> b
-    mikhail.kalashnikov.shoppinglists.ModelFragment this$0 -> a
-    java.lang.Void doInBackground(java.lang.Void[]) -> a
-    java.lang.Object doInBackground(java.lang.Object[]) -> doInBackground
-mikhail.kalashnikov.shoppinglists.ModelFragment$UpdateListItemTask -> mikhail.kalashnikov.shoppinglists.an:
-    mikhail.kalashnikov.shoppinglists.ListItem listItem -> b
-    mikhail.kalashnikov.shoppinglists.ModelFragment this$0 -> a
-    java.lang.Void doInBackground(java.lang.Void[]) -> a
-    java.lang.Object doInBackground(java.lang.Object[]) -> doInBackground
-mikhail.kalashnikov.shoppinglists.ModelFragment$UpdateShoppingListTask -> mikhail.kalashnikov.shoppinglists.ao:
-    mikhail.kalashnikov.shoppinglists.ShoppingList list -> b
-    mikhail.kalashnikov.shoppinglists.ModelFragment this$0 -> a
-    java.lang.Void doInBackground(java.lang.Void[]) -> a
-    java.lang.Object doInBackground(java.lang.Object[]) -> doInBackground
+    void executeAsyncTask(android.os.AsyncTask,java.lang.Object[]) -> a
+    mikhail.kalashnikov.shoppinglists.DataModel getModel() -> E
 mikhail.kalashnikov.shoppinglists.SettingsActivity -> mikhail.kalashnikov.shoppinglists.SettingsActivity:
     void onCreate(android.os.Bundle) -> onCreate
-mikhail.kalashnikov.shoppinglists.ShoppingList -> mikhail.kalashnikov.shoppinglists.ap:
+mikhail.kalashnikov.shoppinglists.ShoppingList -> mikhail.kalashnikov.shoppinglists.aq:
     java.lang.String name -> a
     long id -> b
     java.lang.String getName() -> a
     void setName(java.lang.String) -> a
     long getId() -> b
     java.lang.String toString() -> toString
-mikhail.kalashnikov.shoppinglists.ShoppingListDBHelper -> mikhail.kalashnikov.shoppinglists.aq:
+mikhail.kalashnikov.shoppinglists.ShoppingListDBHelper -> mikhail.kalashnikov.shoppinglists.ar:
     java.lang.String TAG -> a
     mikhail.kalashnikov.shoppinglists.ShoppingListDBHelper singleton -> b
     java.util.List shoppingLists -> c
@@ -5237,21 +5315,22 @@ mikhail.kalashnikov.shoppinglists.ShoppingListDBHelper -> mikhail.kalashnikov.sh
     java.util.List access$8(mikhail.kalashnikov.shoppinglists.ShoppingListDBHelper) -> e
     android.content.Context access$9(mikhail.kalashnikov.shoppinglists.ShoppingListDBHelper) -> f
     void access$10(mikhail.kalashnikov.shoppinglists.ShoppingListDBHelper,java.lang.String) -> a
-mikhail.kalashnikov.shoppinglists.ShoppingListDBHelper$DeleteItemTask -> mikhail.kalashnikov.shoppinglists.ar:
+    java.lang.String access$11(mikhail.kalashnikov.shoppinglists.ShoppingListDBHelper) -> g
+mikhail.kalashnikov.shoppinglists.ShoppingListDBHelper$DeleteItemTask -> mikhail.kalashnikov.shoppinglists.as:
     long id -> b
     mikhail.kalashnikov.shoppinglists.ShoppingListDBHelper this$0 -> a
     java.lang.Void doInBackground(java.lang.Void[]) -> a
     java.lang.Object doInBackground(java.lang.Object[]) -> doInBackground
-mikhail.kalashnikov.shoppinglists.ShoppingListDBHelper$GetShoppingDataTask -> mikhail.kalashnikov.shoppinglists.as:
+mikhail.kalashnikov.shoppinglists.ShoppingListDBHelper$GetShoppingDataTask -> mikhail.kalashnikov.shoppinglists.at:
     mikhail.kalashnikov.shoppinglists.ShoppingListDBHelper$ShoppingDataListener listener -> b
     mikhail.kalashnikov.shoppinglists.ShoppingListDBHelper this$0 -> a
     java.lang.Void doInBackground(java.lang.Void[]) -> a
     void onPostExecute(java.lang.Void) -> a
     void onPostExecute(java.lang.Object) -> onPostExecute
     java.lang.Object doInBackground(java.lang.Object[]) -> doInBackground
-mikhail.kalashnikov.shoppinglists.ShoppingListDBHelper$ShoppingDataListener -> mikhail.kalashnikov.shoppinglists.at:
+mikhail.kalashnikov.shoppinglists.ShoppingListDBHelper$ShoppingDataListener -> mikhail.kalashnikov.shoppinglists.au:
     void updateShoppingData(java.util.List,java.util.List,java.util.Map) -> a
-mikhail.kalashnikov.shoppinglists.ShoppingListDBHelper$UpdateItemTask -> mikhail.kalashnikov.shoppinglists.au:
+mikhail.kalashnikov.shoppinglists.ShoppingListDBHelper$UpdateItemTask -> mikhail.kalashnikov.shoppinglists.av:
     mikhail.kalashnikov.shoppinglists.Item item -> b
     mikhail.kalashnikov.shoppinglists.ShoppingListDBHelper this$0 -> a
     java.lang.Void doInBackground(java.lang.Void[]) -> a
@@ -5273,14 +5352,14 @@ mikhail.kalashnikov.shoppinglists.ShoppingListsActivity -> mikhail.kalashnikov.s
     void onTabReselected(com.actionbarsherlock.app.ActionBar$Tab,android.support.v4.app.FragmentTransaction) -> c
     mikhail.kalashnikov.shoppinglists.ModelFragment access$0(mikhail.kalashnikov.shoppinglists.ShoppingListsActivity) -> a
     com.actionbarsherlock.app.ActionBar access$1(mikhail.kalashnikov.shoppinglists.ShoppingListsActivity) -> b
-mikhail.kalashnikov.shoppinglists.ShoppingListsActivity$1 -> mikhail.kalashnikov.shoppinglists.av:
+mikhail.kalashnikov.shoppinglists.ShoppingListsActivity$1 -> mikhail.kalashnikov.shoppinglists.aw:
     mikhail.kalashnikov.shoppinglists.ShoppingListsActivity this$0 -> Y
     android.app.Dialog onCreateDialog(android.os.Bundle) -> c
     mikhail.kalashnikov.shoppinglists.ShoppingListsActivity access$0(mikhail.kalashnikov.shoppinglists.ShoppingListsActivity$1) -> a
-mikhail.kalashnikov.shoppinglists.ShoppingListsActivity$1$1 -> mikhail.kalashnikov.shoppinglists.aw:
+mikhail.kalashnikov.shoppinglists.ShoppingListsActivity$1$1 -> mikhail.kalashnikov.shoppinglists.ax:
     mikhail.kalashnikov.shoppinglists.ShoppingListsActivity$1 this$1 -> a
     void onClick(android.content.DialogInterface,int) -> onClick
-mikhail.kalashnikov.shoppinglists.SwipeDismissListViewTouchListener -> mikhail.kalashnikov.shoppinglists.ax:
+mikhail.kalashnikov.shoppinglists.SwipeDismissListViewTouchListener -> mikhail.kalashnikov.shoppinglists.ay:
     int mSlop -> a
     int mMinFlingVelocity -> b
     int mMaxFlingVelocity -> c
@@ -5306,27 +5385,27 @@ mikhail.kalashnikov.shoppinglists.SwipeDismissListViewTouchListener -> mikhail.k
     java.util.List access$3(mikhail.kalashnikov.shoppinglists.SwipeDismissListViewTouchListener) -> b
     mikhail.kalashnikov.shoppinglists.SwipeDismissListViewTouchListener$OnDismissCallback access$4(mikhail.kalashnikov.shoppinglists.SwipeDismissListViewTouchListener) -> c
     android.widget.ListView access$5(mikhail.kalashnikov.shoppinglists.SwipeDismissListViewTouchListener) -> d
-mikhail.kalashnikov.shoppinglists.SwipeDismissListViewTouchListener$1 -> mikhail.kalashnikov.shoppinglists.ay:
+mikhail.kalashnikov.shoppinglists.SwipeDismissListViewTouchListener$1 -> mikhail.kalashnikov.shoppinglists.az:
     mikhail.kalashnikov.shoppinglists.SwipeDismissListViewTouchListener this$0 -> a
     void onScrollStateChanged(android.widget.AbsListView,int) -> onScrollStateChanged
     void onScroll(android.widget.AbsListView,int,int,int) -> onScroll
-mikhail.kalashnikov.shoppinglists.SwipeDismissListViewTouchListener$2 -> mikhail.kalashnikov.shoppinglists.az:
+mikhail.kalashnikov.shoppinglists.SwipeDismissListViewTouchListener$2 -> mikhail.kalashnikov.shoppinglists.ba:
     mikhail.kalashnikov.shoppinglists.SwipeDismissListViewTouchListener this$0 -> a
     android.view.View val$downView -> b
     int val$downPosition -> c
     void onAnimationEnd(com.nineoldandroids.animation.Animator) -> b
-mikhail.kalashnikov.shoppinglists.SwipeDismissListViewTouchListener$3 -> mikhail.kalashnikov.shoppinglists.ba:
+mikhail.kalashnikov.shoppinglists.SwipeDismissListViewTouchListener$3 -> mikhail.kalashnikov.shoppinglists.bb:
     mikhail.kalashnikov.shoppinglists.SwipeDismissListViewTouchListener this$0 -> a
     int val$originalHeight -> b
     void onAnimationEnd(com.nineoldandroids.animation.Animator) -> b
-mikhail.kalashnikov.shoppinglists.SwipeDismissListViewTouchListener$4 -> mikhail.kalashnikov.shoppinglists.bb:
+mikhail.kalashnikov.shoppinglists.SwipeDismissListViewTouchListener$4 -> mikhail.kalashnikov.shoppinglists.bc:
     mikhail.kalashnikov.shoppinglists.SwipeDismissListViewTouchListener this$0 -> a
     android.view.ViewGroup$LayoutParams val$lp -> b
     android.view.View val$dismissView -> c
     void onAnimationUpdate(com.nineoldandroids.animation.ValueAnimator) -> a
-mikhail.kalashnikov.shoppinglists.SwipeDismissListViewTouchListener$OnDismissCallback -> mikhail.kalashnikov.shoppinglists.bc:
+mikhail.kalashnikov.shoppinglists.SwipeDismissListViewTouchListener$OnDismissCallback -> mikhail.kalashnikov.shoppinglists.bd:
     void onDismiss(android.widget.ListView,int[]) -> a
-mikhail.kalashnikov.shoppinglists.SwipeDismissListViewTouchListener$PendingDismissData -> mikhail.kalashnikov.shoppinglists.bd:
+mikhail.kalashnikov.shoppinglists.SwipeDismissListViewTouchListener$PendingDismissData -> mikhail.kalashnikov.shoppinglists.be:
     int position -> a
     android.view.View view -> b
     mikhail.kalashnikov.shoppinglists.SwipeDismissListViewTouchListener this$0 -> c

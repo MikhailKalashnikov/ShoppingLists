@@ -877,6 +877,12 @@ com.actionbarsherlock.widget.SearchView$SearchAutoComplete: SearchView$SearchAut
 com.actionbarsherlock.widget.SearchView$SearchAutoComplete: SearchView$SearchAutoComplete(android.content.Context,android.util.AttributeSet,int)
 com.actionbarsherlock.widget.SearchView$SearchAutoComplete: void setSearchView(com.actionbarsherlock.widget.SearchView)
 com.actionbarsherlock.widget.SearchView$SearchAutoComplete: void setThreshold(int)
+com.hb.views.PinnedSectionListView
+com.hb.views.PinnedSectionListView: PinnedSectionListView(android.content.Context,android.util.AttributeSet)
+com.hb.views.PinnedSectionListView: PinnedSectionListView(android.content.Context,android.util.AttributeSet,int)
+com.hb.views.PinnedSectionListView: void setShadowVisible(boolean)
+com.hb.views.PinnedSectionListView: void setOnScrollListener(android.widget.AbsListView$OnScrollListener)
+com.hb.views.PinnedSectionListView: void setAdapter(android.widget.ListAdapter)
 mikhail.kalashnikov.shoppinglists.EditItemFragmentActivity
 mikhail.kalashnikov.shoppinglists.EditItemFragmentActivity: EditItemFragmentActivity()
 mikhail.kalashnikov.shoppinglists.R$array: int qty_types
@@ -997,7 +1003,20 @@ mikhail.kalashnikov.shoppinglists.R$color: int abs__primary_text_disable_only_ho
 mikhail.kalashnikov.shoppinglists.R$color: int abs__primary_text_disable_only_holo_light
 mikhail.kalashnikov.shoppinglists.R$color: int abs__primary_text_holo_dark
 mikhail.kalashnikov.shoppinglists.R$color: int abs__primary_text_holo_light
+mikhail.kalashnikov.shoppinglists.R$color: int blue
+mikhail.kalashnikov.shoppinglists.R$color: int blue_light
 mikhail.kalashnikov.shoppinglists.R$color: int doneTextViewColor
+mikhail.kalashnikov.shoppinglists.R$color: int green_light
+mikhail.kalashnikov.shoppinglists.R$color: int green_light2
+mikhail.kalashnikov.shoppinglists.R$color: int grey_light
+mikhail.kalashnikov.shoppinglists.R$color: int light_golden
+mikhail.kalashnikov.shoppinglists.R$color: int orange
+mikhail.kalashnikov.shoppinglists.R$color: int orange_light
+mikhail.kalashnikov.shoppinglists.R$color: int pale_turquoise
+mikhail.kalashnikov.shoppinglists.R$color: int papaya_whip
+mikhail.kalashnikov.shoppinglists.R$color: int red_light
+mikhail.kalashnikov.shoppinglists.R$color: int rosy_brown
+mikhail.kalashnikov.shoppinglists.R$color: int sky_blue
 mikhail.kalashnikov.shoppinglists.R$dimen: int abs__action_bar_default_height
 mikhail.kalashnikov.shoppinglists.R$dimen: int abs__action_bar_icon_vertical_padding
 mikhail.kalashnikov.shoppinglists.R$dimen: int abs__action_bar_subtitle_bottom_margin
@@ -1241,6 +1260,7 @@ mikhail.kalashnikov.shoppinglists.R$layout: int add_newitem_dialog
 mikhail.kalashnikov.shoppinglists.R$layout: int add_newlist_dialog
 mikhail.kalashnikov.shoppinglists.R$layout: int header_add_new_item
 mikhail.kalashnikov.shoppinglists.R$layout: int list_item_row
+mikhail.kalashnikov.shoppinglists.R$layout: int list_items
 mikhail.kalashnikov.shoppinglists.R$layout: int main
 mikhail.kalashnikov.shoppinglists.R$layout: int mb__messagebar
 mikhail.kalashnikov.shoppinglists.R$layout: int sherlock_spinner_dropdown_item
@@ -1291,6 +1311,8 @@ mikhail.kalashnikov.shoppinglists.R$string: int msg_btn_undo
 mikhail.kalashnikov.shoppinglists.R$string: int msg_list_item_deleted
 mikhail.kalashnikov.shoppinglists.R$string: int on_upgrade_error
 mikhail.kalashnikov.shoppinglists.R$string: int pref_category
+mikhail.kalashnikov.shoppinglists.R$string: int pref_category_main_screen
+mikhail.kalashnikov.shoppinglists.R$string: int pref_category_main_screen_summary
 mikhail.kalashnikov.shoppinglists.R$string: int shopping_list_default_name
 mikhail.kalashnikov.shoppinglists.R$style: int AppBaseTheme
 mikhail.kalashnikov.shoppinglists.R$style: int AppTheme
